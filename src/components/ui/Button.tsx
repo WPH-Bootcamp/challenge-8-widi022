@@ -11,11 +11,11 @@
  * 3. Add more variants jika diperlukan
  */
 
-import React from 'react';
+import React from "react";
 
 // Type definition untuk button variants
-type ButtonVariant = 'primary' | 'secondary' | 'outline';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+type ButtonSize = "sm" | "md" | "lg";
 
 // Props interface dengan TypeScript
 interface ButtonProps {
@@ -25,7 +25,7 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
 }
 
 /**
@@ -40,40 +40,44 @@ interface ButtonProps {
  * @param type - Button type attribute
  */
 const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   children,
   onClick,
-  className = '',
+  className = "",
   disabled = false,
-  type = 'button',
+  type = "button",
 }) => {
   // Base styles yang selalu applied
-  const baseStyles = 'font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles =
+    "font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
 
   // Variant styles - SESUAIKAN dengan design Figma!
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
+    primary:
+      "bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-colors",
+    secondary: "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500",
+    outline:
+      "border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500",
+      ghost: "bg-transparent text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
   };
 
   // Size styles
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: "px-4 py-2 text-sm",
+    md: "px-6 py-3 text-base",
+    lg: "px-8 py-4 text-lg",
   };
 
   // Disabled styles
-  const disabledStyles = 'opacity-50 cursor-not-allowed';
+  const disabledStyles = "opacity-50 cursor-not-allowed";
 
   // Combine all styles
   const buttonClasses = `
     ${baseStyles}
     ${variantStyles[variant]}
     ${sizeStyles[size]}
-    ${disabled ? disabledStyles : ''}
+    ${disabled ? disabledStyles : ""}
     ${className}
   `.trim();
 

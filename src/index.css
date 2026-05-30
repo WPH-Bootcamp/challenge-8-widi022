@@ -18,13 +18,56 @@
  * Prefer using Tailwind utilities in components
  */
 
+ @custom-variant dark (&:where(.dark, .dark *));
+
+ @layer base {
+  body {
+    @apply bg-white text-black dark:bg-[#000000] dark:text-white transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-[#000000] text-white;
+  }
+
+ }
+@theme {
+  --color-primary: #ffffff;
+  --color-secondary: #000000;
+  --font-display: "Your Font Name";
+  --spacing-custom: 2.5rem;
+
+  --bg-primary: #000000;
+  --bg-secondary: #ffffff;
+  --text-primary: #ffffff;
+}
+
+@keyframes marquee {
+   0% {
+     transform: translateX(0);
+   }
+    100% {
+      transform: translateX(-50%);
+    }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.title-class {
+@apply font-semibold text-center p-3
+}
+
+/* .bg-gradient-to-b {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+} */
+
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
 /* Optional: Custom scrollbar styles */
-/* Uncomment if you want custom scrollbar
+ /* Uncomment if you want custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -41,4 +84,11 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-*/
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

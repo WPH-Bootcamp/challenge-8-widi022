@@ -1,6 +1,6 @@
 Nama: [Isma Widi Astuti]
-Repository: [GitHub repository URL]
-Deployment: [Live website URL]
+Repository: [https://github.com/WPH-Bootcamp/challenge-8-widi022]
+Deployment: [https://challenge08-widi.vercel.app/]
 Notes: [Catatan tambahan jika ada - challenges, learning points, etc.]
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dKi29DX4)
